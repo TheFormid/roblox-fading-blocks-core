@@ -60,4 +60,4 @@ Patterns: State Machine, Object Pooling, Attribute Caching
 
 Tools: Rojo, Git
 
-Developed by Mustafa | Solo Game Developer
+Developed by Mustafa Kerim - TheFormid | Solo Game Developer
