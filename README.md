@@ -1,21 +1,23 @@
+# 🚀 Advanced Roblox Mechanics & Optimization
 
-🚀 Advanced Roblox Mechanics & Optimization
-High-performance gameplay systems developed for "Fading Blocks" (Roblox/Luau). Focuses on server optimization, precise hit detection (Spherecast), and robust state machines.
+> **High-performance gameplay systems developed for "Fading Blocks" (Roblox/Luau).**
+> Focuses on server optimization, precise hit detection (Spherecast), and robust state machines.
 
-🛠️ Key Systems
-1. Volumetric Hit Detection (Spherecast vs. Raycast)
+---
+
+## 🛠️ Key Systems
+
+### 1. Volumetric Hit Detection (Spherecast vs. Raycast)
 In fast-paced PvP scenarios, standard Raycasting often misses moving targets due to thin hitboxes ("needle effect").
 
-Solution: Implemented workspace:Spherecast to create a volumetric detection tunnel.
+* **Solution:** Implemented `workspace:Spherecast` to create a volumetric detection tunnel.
+* **Result:** 100% hit accuracy on moving players without compromising server performance.
+* **Feedback:** Added visual highlighting and sound queues for "Game Juice".
 
-Result: 100% hit accuracy on moving players without compromising server performance.
+### 2. Hybrid Attribute Architecture (Data Optimization)
+To prevent server lag caused by frequent Datastore calls (`GetAsync`), I designed a caching system using Roblox Attributes.
 
-Feedback: Added visual highlighting and sound queues for "Game Juice".
-
-2. Hybrid Attribute Architecture (Data Optimization)
-To prevent server lag caused by frequent Datastore calls (GetAsync), I designed a caching system using Roblox Attributes.
-
-
+```mermaid
 graph TD
     A[Player Joins] -->|Checks Datastore Once| B(Server Script)
     B -->|Stamps Attribute| C{Player Object RAM}
