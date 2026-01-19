@@ -1,22 +1,21 @@
-# 🚀 Advanced Roblox Mechanics & Optimization
 
-> **High-performance gameplay systems developed for "Fading Blocks" (Roblox/Luau).**
-> Focuses on server optimization, precise hit detection (Spherecast), and robust state machines.
+🚀 Advanced Roblox Mechanics & Optimization
+High-performance gameplay systems developed for "Fading Blocks" (Roblox/Luau). Focuses on server optimization, precise hit detection (Spherecast), and robust state machines.
 
----
-
-## 🛠️ Key Systems
-
-### 1. Volumetric Hit Detection (Spherecast vs. Raycast)
+🛠️ Key Systems
+1. Volumetric Hit Detection (Spherecast vs. Raycast)
 In fast-paced PvP scenarios, standard Raycasting often misses moving targets due to thin hitboxes ("needle effect").
-* **Solution:** Implemented `workspace:Spherecast` to create a volumetric detection tunnel.
-* **Result:** 100% hit accuracy on moving players without compromising server performance.
-* **Feedback:** Added visual highlighting and sound queues for "Game Juice".
 
-### 2. Hybrid Attribute Architecture (Data Optimization)
-To prevent server lag caused by frequent Datastore calls (`GetAsync`), I designed a caching system using Roblox Attributes.
+Solution: Implemented workspace:Spherecast to create a volumetric detection tunnel.
 
-```mermaid
+Result: 100% hit accuracy on moving players without compromising server performance.
+
+Feedback: Added visual highlighting and sound queues for "Game Juice".
+
+2. Hybrid Attribute Architecture (Data Optimization)
+To prevent server lag caused by frequent Datastore calls (GetAsync), I designed a caching system using Roblox Attributes.
+
+
 graph TD
     A[Player Joins] -->|Checks Datastore Once| B(Server Script)
     B -->|Stamps Attribute| C{Player Object RAM}
@@ -25,7 +24,6 @@ graph TD
     E -->|Client Reads Attribute| F[Enable Push Tool]
     style C fill:#f9f,stroke:#333,stroke-width:2px
     style F fill:#ccf,stroke:#333,stroke-width:2px
-
 Logic: Player loads data once -> Attributes are cached on the Player object (RAM) -> Attributes are replicated to the Character automatically on spawn.
 
 Benefit: Zero Datastore calls during gameplay/respawn, drastically reducing network overhead.
